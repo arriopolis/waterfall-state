@@ -1,0 +1,210 @@
+\documentclass{article}
+%\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{varioref}
+\usepackage{verbatim} 
+\usepackage{multicol}
+\usepackage{enumerate}
+%\usepackage[normalem]{ulem}
+
+\usepackage{caption}
+\usepackage{subcaption}
+%\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{qcircuit}
+
+%\usepackage{mathrsfs}
+
+\usepackage{url}\urlstyle{same}
+\usepackage{xspace}
+\usepackage{thm-restate}
+
+% Nicer font
+%\usepackage{mathpazo}
+
+% Microtype
+\usepackage{microtype}
+
+% TikZ
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% Support eps figures
+\usepackage{epstopdf}
+
+% Hypertext package
+\usepackage[colorlinks = true]{hyperref}
+% Title and authors
+%\hypersetup{
+%  pdftitle = {},
+%  pdfauthor = {}
+%}
+% Color definitions
+\usepackage{xcolor}
+\definecolor{darkred}  {rgb}{0.5,0,0}
+\definecolor{darkblue} {rgb}{0,0,0.5}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+% Color links
+\hypersetup{
+  urlcolor   = blue,         % color of external links
+  linkcolor  = darkblue,     % color of internal links
+  citecolor  = darkgreen,    % color of links to bibliography
+  filecolor  = darkred       % color of file links
+}
+
+% Clever references
+\usepackage{cleveref}%[nameinlink]
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{definition}{Definition}{Definitions}
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{conjecture}{Conjecture}{Conjectures}
+\crefname{corollary}{Corollary}{Corollaries}
+\crefname{section}{Section}{Sections}
+\crefname{appendix}{Appendix}{Appendices}
+\crefname{figure}{Fig.}{Figs.}
+\crefname{equation}{Eq.}{Eqs.}
+\crefname{table}{Table}{Tables}
+\crefname{claim}{Claim}{Claims}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%  N E W T H E O R E M  %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem*{conjecture*}{Conjecture}
+\newtheorem*{problem}{Problem}
+\newtheorem{claim}[theorem]{Claim}
+\theoremstyle{definition}
+\newtheorem*{remark}{Remark}
+\newtheorem*{example}{Example}
+
+
+%%%%%%%%%%%%%%%%%%%
+%  Comments  %
+%%%%%%%%%%%%%%%%%%%
+\newcommand{\todo}[1]{{\color{red}{[{\bf TODO:} #1]}}}
+\newcommand{\tocite}[1]{{\color{blue}{[{\bf CITE:}#1]}}}
+\newcommand{\tocheck}[1]{{\color{red}{[{\bf TO CHECK:}#1]}}}
+
+%%%%%%%%%%%%%%%%%%%
+%  Author Affiliations  %
+%%%%%%%%%%%%%%%%%%%
+%\usepackage{authblk}
+%\renewcommand\Authfont{\scshape}
+%\renewcommand\Affilfont{\itshape\small}
+
+
+%%%%%%%%%%%%%%%%%%%
+%  New Commands  %
+%%%%%%%%%%%%%%%%%%%
+\newcommand\QMA{{\sf{QMA}}}
+\newcommand\QCMA{{\sf{QCMA}}}
+\newcommand\NP{{\sf{NP}}}
+
+
+\newcommand{\ee}{\mathcal{E}}
+\newcommand{\ii}{\mathbb{I}}
+\newcommand{\rl}{\rangle\langle}
+\newcommand{\mg}{\mathcal{G}}
+\newcommand{\hn}[1]{\|#1\|^H_{1\rightarrow 1}}
+\newcommand{\ve}[1]{|#1\rangle\!\rangle}
+\newcommand{\ro}[1]{\langle\!\langle#1|}
+\newcommand{\bkett}[1]{|#1\rangle\!\rangle\langle\!\langle#1|}
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\bra}[1]{\langle#1|}
+\newcommand{\bk}[1]{|#1\rangle\langle#1|}
+\newcommand{\tth}[0]{\textsuperscript{th}}
+\newcommand{\st}[0]{\textsuperscript{st}}
+\newcommand{\nd}[0]{\textsuperscript{nd}}
+\newcommand{\rd}[0]{\textsuperscript{rd}}
+
+
+\DeclareMathAlphabet{\matheu}{U}{eus}{m}{n}
+
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\id}{id}
+\newcommand{\Favg}{\overline{F}}
+\newcommand{\Paulis}{{\matheu P}}
+\newcommand{\Clifs}{{\matheu C}}
+\newcommand{\Hilb}{{\matheu H}}
+\newcommand{\T}{{\matheu T}}
+\newcommand{\sop}[1]{{\mathcal #1}}
+\newcommand{\PL}[1]{{#1}^{P\!L}}
+\newcommand{\BHn}{{{\mathcal B}({\mathcal H}^{\otimes n})}}
+\newcommand{\I}{{\mathbb I}}
+\newcommand{\CNOT}{{\mathrm{CNOT}}}
+\newcommand{\plr}[1]{\hat{#1}} %pauli-liouville-represenation
+
+
+%\newcommand{\ket}[1]{|{#1}\rangle}
+%\newcommand{\bra}[1]{\langle{#1}|}
+\newcommand{\braket}[2]{\langle{#1}|{#2}\rangle}
+\newcommand{\ketbra}[2]{|{#1}\rangle\!\langle{#2}|}
+\newcommand{\kket}[1]{|{#1}\rangle\!\rangle}
+\newcommand{\bbra}[1]{\langle\!\langle{#1}|}
+\newcommand{\bbrakket}[2]{\langle\!\langle{#1}|{#2}\rangle\!\rangle}
+\newcommand{\proj}[1]{|#1\rangle\!\langle#1|}
+
+\newcommand{\no}{\nonumber\\}
+
+\newcommand{\ns}{{\textsc{ns}}}
+\newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
+\newcommand{\se}{\succcurlyeq}
+\newcommand{\di}{\textrm{diag}}
+\newcommand{\capac}{c}
+\newcommand{\eps}{\epsilon}
+
+%-----------------------------------------------------------------------------%
+
+%-- Graph Symbols --%
+\newcommand{\depth}{d}
+\newcommand{\subf}{l}
+\newcommand{\edgeL}{\ell}
+\newcommand{\Ohm}{c}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\def\O{\mathrm{O}}
+\def\tO{\widetilde{\mathrm{O}}}
+\renewcommand{\th}[1]{${#1}^{\textrm{th}}$}
+\begin{document}
+\title{\large {\bf An approximate $\log n$ depth circuit for decoding waterfall states, with aplication to position based cryptography}}
+\author{Alvaro Piedrafita, Subhasree Patro, Arjan Corneliessen, Farrokh Labib, Florian Speelman}
+\maketitle
+\section{Correctness of the circuit}
+
+ Our goal here is to prove that the circuit from figure \ref{fig.1} extracts the value $x_k$ while leaving the state mostly unperturbed. That is, we will prove the following lemma.
+
+\begin{lemma}
+Let $\vec{x}=(x_1,\dots,x_k)\in\{0,1\}^k$ be a $k$ bit string, and $\ket{Enc(\vec{x})}$ its encoding.
+\begin{equation}
+|\bra{Enc(\vec{x})}\bra{x_k}U_k\ket{Enc(\vec{x})}\ket{0}|= \sqrt{1-\frac{\sin^2\frac{\pi}{8}}{2^{k-1}}}
+\end{equation}
+\end{lemma}
+\begin{proof}
+We begin by noticing that we can split $U_k$ into $V_k^\dagger CNOT_{(k,A)}V_k$, where $V_k$ are unitaries that only act on the block of $k$ qubits and the controlled not operation acts on the last qubit of the block and the ancilla. The crucial part of the proof will be to understand the structure of  $V_k\ket{Enc(\vec{x})}$. Indeed, allow us to write  $V_k\ket{Enc(\vec{x})}$ as
+\[V_k\ket{Enc(\vec{x})}=\ket{\psi}\ket{x_k}+\ket{\phi}\ket{\bar{x_k}},\]
+For some vectors $\ket{\psi}$ and $\ket{\phi}$. Observe that the $CNOT$ with a target initialized at $\ket{0}$ simply copies into the ancillary register the value of the $k$-th bit of $V_k\ket{Enc(\vec{x})}$, hence we have
+\begin{equation}
+CNOT_{(k,A)}V_k\ket{Enc(\vec{x})}\ket{0}=\ket{\psi}\ket{x_k}\ket{x_k}+\ket{\phi}\ket{\bar{x_k}}\ket{\bar{x_k}}.
+\end{equation}
+
+Hence, the inner product that we are interested in reads
+\begin{eqnarray}
+|\bra{Enc(\vec{x})}\bra{x_k}V_k^\dagger CNOT_{(k,A)}V_k\ket{Enc(\vec{x})}\ket{0}|&=&|\left[\left(\bra{\psi}\bra{x_k}+\bra{\phi}\bra{\bar{x_k}}\right)\bra{x_k}\right]\left[\ket{\psi}\ket{x_k}\ket{x_k}+\ket{\phi}\ket{\bar{x_k}}\ket{\bar{x_k}}\right]|\\
+&=&|\braket{\psi}{\psi}|=\sqrt{1-|\braket{\phi}{\phi}|^2}.
+\end{eqnarray}
+
+Now, we shall characterize $V_k\ket{Enc(\vec{x})}$ and prove that $|\ket{\phi}|$ is really small.
+\end{proof}
+
+\end{document}
