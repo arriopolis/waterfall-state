@@ -64,12 +64,12 @@ if __name__ == "__main__":
     plus = np.array([1,1]) / np.sqrt(2)
     minus = np.array([1,-1]) / np.sqrt(2)
 
-    print("Bitstring Innerproduct Lowerbound")
     num_cols = min(8, 2**((n+1)//2))
     num_rows = 2**n // num_cols
     row_format = '{:<30}' * num_cols
     table = [['' for _ in range(num_cols)] for _ in range(num_rows)]
     for i,bitstring in enumerate(it.product(range(2), repeat = n)):
+        print("Simulation progress: {:.3f}%".format(i/2**n*100), end = '\r')
         qubit_states = []
         for x,y in zip([0] + list(bitstring)[:-1], bitstring):
             if x == 0:
@@ -83,5 +83,6 @@ if __name__ == "__main__":
 
         cell = '{} {:.3f} {:.3f}'.format(''.join(map(str,bitstring)), np.abs(inp), 0.)
         table[i%num_rows][i//num_rows] = cell
+    print("Bitstring Innerproduct Lowerbound")
     for x in table:
         print(row_format.format(*x))
