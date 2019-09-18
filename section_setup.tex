@@ -1,0 +1,26 @@
+\section{Setup}
+
+To give the encoding that we are considering in this paper, we need the following definition.
+\begin{definition}
+ Let $x,y\in \{0,1\}$ be two bits. The one-qubit state $\ket{x}_y$ is defined as follows,
+ \begin{equation*}
+  \ket{x}_y =
+    \begin{cases*}
+      \ket{x} & if $y=0$\\
+      H\ket{x} & if $y=1$,
+    \end{cases*}
+ \end{equation*}
+ and $\{\ket{0},\ket{1}\}$ is the computational basis.
+
+\end{definition}
+
+
+Let $x\in \{0,1\}^n$ be an $n$-bit string. Alice encodes the product state $\ket{x_1,\dots,x_n}$ by the following circuit.
+%% here comes a circuit!
+
+Essentially, Alice encodes the qubit $\ket{x_i}$ in the basis specified by the bit $x_{i-1}$. We denote the ouput product state by $\ket{\mathrm{Enc}(x)}$ and it is explicitly given by
+
+\begin{align*}
+ \ket{\mathrm{Enc}(x)} = \bigotimes_{i=1}^n\ket{x_i}_{x_{i-1}},
+\end{align*}
+where we set $x_0=0$.
