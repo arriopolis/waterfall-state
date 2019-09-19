@@ -9,6 +9,8 @@
 \usepackage{verbatim} 
 \usepackage{multicol}
 \usepackage{enumerate}
+
+\usepackage{mathtools}
 %\usepackage[normalem]{ulem}
 
 \usepackage{caption}
@@ -177,6 +179,11 @@
 \title{\large {\bf An approximate $\log n$ depth circuit for decoding waterfall states, with aplication to position based cryptography}}
 \author{Alvaro Piedrafita, Subhasree Patro, Arjan Corneliessen, Farrokh Labib, Florian Speelman}
 \maketitle
+
+
+\input{section_setup.tex}
+
+
 \section{Correctness of the circuit}
 
  Our goal here is to prove that the circuit from figure \ref{fig.1} extracts the value $x_k$ while leaving the state mostly unperturbed. That is, we will prove the following lemma.
