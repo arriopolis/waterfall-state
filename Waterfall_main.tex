@@ -108,9 +108,6 @@
 %%%%%%%%%%%%%%%%%%%
 %  New Commands  %
 %%%%%%%%%%%%%%%%%%%
-\newcommand\QMA{{\sf{QMA}}}
-\newcommand\QCMA{{\sf{QCMA}}}
-\newcommand\NP{{\sf{NP}}}
 
 
 \newcommand{\ee}{\mathcal{E}}
@@ -185,26 +182,49 @@
  Our goal here is to prove that the circuit from figure \ref{fig.1} extracts the value $x_k$ while leaving the state mostly unperturbed. That is, we will prove the following lemma.
 
 \begin{lemma}
-Let $\vec{x}=(x_1,\dots,x_k)\in\{0,1\}^k$ be a $k$ bit string, and $\ket{Enc(\vec{x})}$ its encoding.
+Let $\textbf{x}=(x_1,\dots,x_k)\in\{0,1\}^k$ be a $k$ bit string, and $\ket{\textbf{x}_{enc}}$ its encoding.
 \begin{equation}
-|\bra{Enc(\vec{x})}\bra{x_k}U_k\ket{Enc(\vec{x})}\ket{0}|= \sqrt{1-\frac{\sin^2\frac{\pi}{8}}{2^{k-1}}}
+|\bra{\textbf{x}_{enc}}\bra{x_k}U_k\ket{\textbf{x}_{enc}}\ket{0}|= \sqrt{1-\frac{\sin^2\frac{\pi}{8}}{2^{k-1}}}
 \end{equation}
 \end{lemma}
 \begin{proof}
 We begin by noticing that we can split $U_k$ into $V_k^\dagger CNOT_{(k,A)}V_k$, where $V_k$ are unitaries that only act on the block of $k$ qubits and the controlled not operation acts on the last qubit of the block and the ancilla. The crucial part of the proof will be to understand the structure of  $V_k\ket{Enc(\vec{x})}$. Indeed, allow us to write  $V_k\ket{Enc(\vec{x})}$ as
-\[V_k\ket{Enc(\vec{x})}=\ket{\psi}\ket{x_k}+\ket{\phi}\ket{\bar{x_k}},\]
-For some vectors $\ket{\psi}$ and $\ket{\phi}$. Observe that the $CNOT$ with a target initialized at $\ket{0}$ simply copies into the ancillary register the value of the $k$-th bit of $V_k\ket{Enc(\vec{x})}$, hence we have
+\[V_k\ket{\textbf{x}_{enc}}=\ket{\psi}\ket{x_k}+\ket{\phi}\ket{\bar{x_k}},\]
+For some vectors $\ket{\psi}$ and $\ket{\phi}$. Observe that the $CNOT$ with a target initialized at $\ket{0}$ simply copies into the ancillary register the value of the $k$-th bit of $V_k\ket{\textbf{x}_{enc}}$, hence we have
 \begin{equation}
-CNOT_{(k,A)}V_k\ket{Enc(\vec{x})}\ket{0}=\ket{\psi}\ket{x_k}\ket{x_k}+\ket{\phi}\ket{\bar{x_k}}\ket{\bar{x_k}}.
+CNOT_{(k,A)}V_k\ket{\textbf{x}_{enc}}\ket{0}=\ket{\psi}\ket{x_k}\ket{x_k}+\ket{\phi}\ket{\bar{x_k}}\ket{\bar{x_k}}.
 \end{equation}
 
 Hence, the inner product that we are interested in reads
 \begin{eqnarray}
-|\bra{Enc(\vec{x})}\bra{x_k}V_k^\dagger CNOT_{(k,A)}V_k\ket{Enc(\vec{x})}\ket{0}|&=&|\left[\left(\bra{\psi}\bra{x_k}+\bra{\phi}\bra{\bar{x_k}}\right)\bra{x_k}\right]\left[\ket{\psi}\ket{x_k}\ket{x_k}+\ket{\phi}\ket{\bar{x_k}}\ket{\bar{x_k}}\right]|\\
+|\bra{\textbf{x}_{enc}}\bra{x_k}V_k^\dagger CNOT_{(k,A)}V_k\ket{\textbf{x}_{enc}}\ket{0}|&=&|\left[\left(\bra{\psi}\bra{x_k}+\bra{\phi}\bra{\bar{x_k}}\right)\bra{x_k}\right]\left[\ket{\psi}\ket{x_k}\ket{x_k}+\ket{\phi}\ket{\bar{x_k}}\ket{\bar{x_k}}\right]|\\
 &=&|\braket{\psi}{\psi}|=\sqrt{1-|\braket{\phi}{\phi}|^2}.
 \end{eqnarray}
 
-Now, we shall characterize $V_k\ket{Enc(\vec{x})}$ and prove that $|\ket{\phi}|$ is really small.
+Now, we shall characterize $V_k\ket{\textbf{x}_{enc}}$ and prove that $|\ket{\phi}|$ is really small.
+
+We begin by observing that the action of $Y^{\frac{1}{4}}$ on $\ket{\textbf{x}_{enc}}$ only afects the first qubit, mapping it to
+
+\[Y^\frac{1}{4}\ket{x_{1(x_0)}}=(-1)^{x_0}\cos\frac{\pi}{8}\ket{x_1}+(-1)^{1-x_0}\sin\frac{\pi}{8}\ket{1-x_1}.\]
+This last equality can be deduced directly from figure \ref{fig.2} because rotating $\ket{0}, \ket{1}, \ket{+},$ and $\ket{-}$ by an angle $\frac{\pi}{8}$on the block sphere is conceptually nothing more than writing these states in the basis $\{\ket{\xi_0}, \ket{\xi_1}\}$ and rename those states as $\ket{0}$ and $\ket{1}$. Hence, we can think of this rotation as splitting $\ket{\textbf{x}_{enc}}$ into two parts, one with $\ket{x_1}$ in the first register, and one with $\ket{1-x_1}$ in the same register.
+
+When one applies the second layer of the circuit $V_k$ on part of the state $Y^{\frac{1}{4}}\ket{\textbf{x}_{enc}}$ labeled by $x_1$ in the first register, one obtains 
+\[\cos\frac{\pi}{8}(-1)^{x_0}CH_{1,2}\ket{x_1}\bigotimes_{j=2}^k\ket{x_{j(x_{j-1})}}=\cos\frac{\pi}{8}(-1)^{x_0}\ket{x_1}H^{2 x_1}\ket{x_2}\bigotimes_{j=3}^k\ket{x_{j(x_{j-1})}}\]
+In fact, it follows by inspection that the entire circuit $V_k$ acting on this state will simply decode the rest of the bits. More interesting is the action of that first controlled Hadamard on the other branch, $\sin\frac{\pi}{8}(-1)^{1-x_0}\ket{1-x_1}\bigotimes_{j=2}^k\ket{x_{j(x_{j-1})}}$. In this branch we have
+
+\begin{eqnarray}
+&CH(1,2)\ket{1-x_1}\ket{x_{2(x_1)}}\bigotimes_{j=3}^k\ket{x_{j(x_{j-1})}}\\
+&=\ket{1-x_1}H^{(1-x_1)}H^{x_1}\ket{x_2}\bigotimes_{j=3}^k\ket{x_{j(x_{j-1})}}\\
+&=\ket{1-x_1}\left(\frac{\ket{1-x_2}+(-1)^{x_2}\ket{x_2}}{\sqrt2}\right)\bigotimes_{j=3}^k\ket{x_{j(x_{j-1})}}
+\end{eqnarray}
+
+In general, for any given $l<k$, every time the controll qubit is in the wrong state, the controlled Hadamard will split the target into a ket with $\ket{x_l}$ and one with $\ket{1-x_l}$. Then again, the next controlled Hadamard will decode the next bit correctly on the first branch, and, in fact, the remainder of the circuit will correctly decode the rest of the qubits.Meanwile, on the wrong branch, the next gate will split the next qubit into an equal superposition of the correct and incorrect bit values, and the same argument will apply. It is a simple exercise that the state at the end of the circuit will be
+\begin{equation}
+V_k\ket{\textbf{x}_{enc}}=\cos\frac{\pi}{8}\bigotimes_{i=1}^k\ket{x_i}+\sin\frac{\pi}{8}\sum_{l=1}^k\frac{1}{2^{\frac{l-1}{2}}}\left(\bigotimes_{i=1}^l\ket{1-x_i}\bigotimes_{j=l+1}^k\ket{x_j}\right)
+\end{equation}
+Finally, notice how this state can be written as
+\[V_k\ket{\textbf{x}_{enc}}=\ket{\psi}\ket{x_k}+\ket{\phi}\ket{1-x_k},\quad \text{where} \quad \ket{\phi}=\sin\frac{\pi}{8}\frac{1}{2^{\frac{k-1}{2}}}\bigotimes_{i=1}^{k-1}\ket{1-x_i}\]
+
 \end{proof}
 
 \end{document}
