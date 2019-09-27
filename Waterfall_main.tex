@@ -193,6 +193,7 @@ Let $\textbf{x}=(x_1,\dots,x_k)\in\{0,1\}^k$ be a $k$ bit string, and $\ket{\tex
 \begin{equation}
 |\bra{\textbf{x}_{enc}}\bra{x_k}U_k\ket{\textbf{x}_{enc}}\ket{0}|= \sqrt{1-\frac{\sin^2\frac{\pi}{8}}{2^{k-1}}}
 \end{equation}
+\label{lem:bit_extract}
 \end{lemma}
 \begin{proof}
 We begin by noticing that we can split $U_k$ into $V_k^\dagger CNOT_{(k,A)}V_k$, where $V_k$ are unitaries that only act on the block of $k$ qubits and the controlled not operation acts on the last qubit of the block and the ancilla. The crucial part of the proof will be to understand the structure of  $V_k\ket{Enc(\vec{x})}$. Indeed, allow us to write  $V_k\ket{Enc(\vec{x})}$ as
@@ -212,17 +213,28 @@ Now, we shall characterize $V_k\ket{\textbf{x}_{enc}}$ and prove that $|\ket{\ph
 
 We begin by observing that the action of $Y^{\frac{1}{4}}$ on $\ket{\textbf{x}_{enc}}$ only afects the first qubit, mapping it to
 
-\[Y^\frac{1}{4}\ket{x_{1(x_0)}}=(-1)^{x_0}\cos\frac{\pi}{8}\ket{x_1}+(-1)^{1-x_0}\sin\frac{\pi}{8}\ket{1-x_1}.\]
+\[Y^\frac{1}{4}\ket{x_1}_{x_{0}}=(-1)^{x_0}\cos\frac{\pi}{8}\ket{x_1}+(-1)^{1-x_0}\sin\frac{\pi}{8}\ket{1-x_1}.\]
 This last equality can be deduced directly from figure \ref{fig.2} because rotating $\ket{0}, \ket{1}, \ket{+},$ and $\ket{-}$ by an angle $\frac{\pi}{8}$on the block sphere is conceptually nothing more than writing these states in the basis $\{\ket{\xi_0}, \ket{\xi_1}\}$ and rename those states as $\ket{0}$ and $\ket{1}$. Hence, we can think of this rotation as splitting $\ket{\textbf{x}_{enc}}$ into two parts, one with $\ket{x_1}$ in the first register, and one with $\ket{1-x_1}$ in the same register.
-
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\draw[black, thick,->] (0,0) -- (0,3) node[above] {$\ket{1}$};
+\draw[black, thick,->] (0,0) --(3,0) node[right] {$\ket{0}$};
+\draw[black, dashed,->] (0,0) --(2.1213,2.1213) node[above] {$\ket{+}$};
+\draw[black, dashed,->] (0,0) --(-2.1213,2.1213) node[above] {$\ket{-}$};
+\draw[black, dotted,->] (0,0) --(2.7716,1.14805) node[right] {$\ket{\xi_0}$};
+\draw[black, dotted,->] (0,0) --(-1.14805,2.7716) node[above] {$\ket{\xi_1}$};
+\end{tikzpicture}
+\label{fig:bases}
+\end{figure}
 When one applies the second layer of the circuit $V_k$ on part of the state $Y^{\frac{1}{4}}\ket{\textbf{x}_{enc}}$ labeled by $x_1$ in the first register, one obtains 
-\[\cos\frac{\pi}{8}(-1)^{x_0}CH_{1,2}\ket{x_1}\bigotimes_{j=2}^k\ket{x_{j(x_{j-1})}}=\cos\frac{\pi}{8}(-1)^{x_0}\ket{x_1}H^{2 x_1}\ket{x_2}\bigotimes_{j=3}^k\ket{x_{j(x_{j-1})}}\]
-In fact, it follows by inspection that the entire circuit $V_k$ acting on this state will simply decode the rest of the bits. More interesting is the action of that first controlled Hadamard on the other branch, $\sin\frac{\pi}{8}(-1)^{1-x_0}\ket{1-x_1}\bigotimes_{j=2}^k\ket{x_{j(x_{j-1})}}$. In this branch we have
+\[\cos\frac{\pi}{8}(-1)^{x_0}CH_{1,2}\ket{x_1}\bigotimes_{j=2}^k\ket{x_j}_{x_{j-1}}=\cos\frac{\pi}{8}(-1)^{x_0}\ket{x_1}H^{2 x_1}\ket{x_2}\bigotimes_{j=3}^k\ket{x_j}_{x_{j-1}}\]
+In fact, it follows by inspection that the entire circuit $V_k$ acting on this state will simply decode the rest of the bits. More interesting is the action of that first controlled Hadamard on the other branch, $\sin\frac{\pi}{8}(-1)^{1-x_0}\ket{1-x_1}\bigotimes_{j=2}^k\ket{x_j}_{x_{j-1}}$. In this branch we have
 
 \begin{eqnarray}
-&CH(1,2)\ket{1-x_1}\ket{x_{2(x_1)}}\bigotimes_{j=3}^k\ket{x_{j(x_{j-1})}}\\
-&=\ket{1-x_1}H^{(1-x_1)}H^{x_1}\ket{x_2}\bigotimes_{j=3}^k\ket{x_{j(x_{j-1})}}\\
-&=\ket{1-x_1}\left(\frac{\ket{1-x_2}+(-1)^{x_2}\ket{x_2}}{\sqrt2}\right)\bigotimes_{j=3}^k\ket{x_{j(x_{j-1})}}
+&CH(1,2)\ket{1-x_1}\ket{x_{2(x_1)}}\bigotimes_{j=3}^k\ket{x_j}_{x_{j-1}}\\
+&=\ket{1-x_1}H^{(1-x_1)}H^{x_1}\ket{x_2}\bigotimes_{j=3}^k\ket{x_j}_{x_{j-1}}\\
+&=\ket{1-x_1}\left(\frac{\ket{1-x_2}+(-1)^{x_2}\ket{x_2}}{\sqrt2}\right)\bigotimes_{j=3}^k\ket{x_j}_{x_{j-1}}
 \end{eqnarray}
 
 In general, for any given $l<k$, every time the controll qubit is in the wrong state, the controlled Hadamard will split the target into a ket with $\ket{x_l}$ and one with $\ket{1-x_l}$. Then again, the next controlled Hadamard will decode the next bit correctly on the first branch, and, in fact, the remainder of the circuit will correctly decode the rest of the qubits.Meanwile, on the wrong branch, the next gate will split the next qubit into an equal superposition of the correct and incorrect bit values, and the same argument will apply. It is a simple exercise that the state at the end of the circuit will be
@@ -233,5 +245,29 @@ Finally, notice how this state can be written as
 \[V_k\ket{\textbf{x}_{enc}}=\ket{\psi}\ket{x_k}+\ket{\phi}\ket{1-x_k},\quad \text{where} \quad \ket{\phi}=\sin\frac{\pi}{8}\frac{1}{2^{\frac{k-1}{2}}}\bigotimes_{i=1}^{k-1}\ket{1-x_i}\]
 
 \end{proof}
+
+Let us think about what this lemma for a second. What we have proved is that this little circuit does not just extract the value $x_k$ encoded in the last qubit of $\ket{\textbf{x}_{enc}}$ with very high probability, it actually does so while barley disturbing the state in the first $k-1$ qubits of the block. The next step is now dividing our $n$-qubit encoded state into $n/k$ blocks of size $k$ and run the circuit of figure \ref{fig:figure1} parallelly in each block. Now, if we run the honest decoder in each block with the first Hadamard of the circuit controlled on the ancilla of the previous block, we would find that the state is decoded almost exactly since the state in these qubits is very near the original encoded state and the state of that ancilla is very near the comutational basis state encoding the right bit of information.\\
+
+For any particular block $B_i$, Lemma \ref{lem:bit_extract} implies that the amplitude of the ancilla on the state $\ket{x_{i_k}}$ will be  bigger than $ \sqrt{1-\frac{\sin^2\frac{\pi}{8}}{2^{k-1}}}$. Call this ancillary qubit $A_i$. At the same time, if we apply the same lemma to the block $B_{i+1}$, we would get that the state in the qubits of the block would have an overlap with $\ket{\textbf{x}^{(i+1)}_{enc}}$ which is also bigger than $ \sqrt{1-\frac{\sin^2\frac{\pi}{8}}{2^{k-1}}}$.\\
+
+All this implies that if we take the state on the ancilla $A_i$ and the qubits of the block $B_{i+1}$, we would have amplitude at least $ \sqrt{1-\frac{\sin^2\frac{\pi}{8}}{2^{k-1}}}^2$ on the state $\ket{x_{i_k}}\ket{\textbf{x}^{(i+1)}_{enc}}$.\\
+
+By construction, applying the waterfall circuit to the latter state will result in perfect decoding of the bits of block $B_{i+1}$. Hence, applying the whaterfall circuit to the output of the first stage to the ancilla $A_i$ and the qubits of the block $B_{i+1}$ will result in a state with an overlap bigger or equal than $\sqrt{1-\frac{\sin^2\frac{\pi}{8}}{2^{k-1}}}^2$ with the state $\ket{x_{i_k}}\ket{\textbf{x}^{(i+1)}}$ . Finally, observe that we can apply this waterfall circuit with depth $k$ to every block. The amplitude of the  joint state of all $n/k$ blocks in the state $\ket{\textbf{x}}$ will then be bigger than
+\begin{equation}
+ \left(1-\frac{\sin^2\frac{\pi}{8}}{2^{k-1}}\right)^{n/k}.
+\end{equation}
+
+Accordingly, the probability of obtaining the right string $(x_1,\dots,x_n)$ upon measuring the output state in the computational basis will be the square of that. Choosing the depth of the blocks to be $k=q\log n$ will result in a success probability of decoding of at least
+
+\begin{equation}
+ \left(1-\frac{\sin^2\frac{\pi}{8}}{2^{k-1}}\right)^{2n/k}=1-O\left(\frac{1}{qn^{q-1}\log n}\right)
+\end{equation}
+
+
+
+
+
+
+
 
 \end{document}

@@ -15,12 +15,12 @@ To give the encoding that we are considering in this paper, we need the followin
 \end{definition}
 
 
-Let $x\in \{0,1\}^n$ be an $n$-bit string. Alice encodes the product state $\ket{x_1,\dots,x_n}$ by the following circuit.
+Let $\textbf{x}\in \{0,1\}^n$ be an $n$-bit string. Alice encodes the product state $\ket{x_1,\dots,x_n}$ by the following circuit.
 %% here comes a circuit!
 
-Essentially, Alice encodes the qubit $\ket{x_i}$ in the basis specified by the bit $x_{i-1}$. We denote the ouput product state by $\ket{\mathrm{Enc}(x)}$ and it is explicitly given by
+Essentially, Alice encodes the qubit $\ket{x_i}$ in the basis specified by the bit $x_{i-1}$. We denote the ouput product state by $\ket{\textbf{x}_{enc}}$ and it is explicitly given by
 
 \begin{align*}
- \ket{\mathrm{Enc}(x)} = \bigotimes_{i=1}^n\ket{x_i}_{x_{i-1}},
+ \ket{\textbf{x}_{enc}} = \bigotimes_{i=1}^n\ket{x_i}_{x_{i-1}},
 \end{align*}
 where we set $x_0=0$.
