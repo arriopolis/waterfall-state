@@ -1,0 +1,231 @@
+%! \usetikzlibrary{decorations.pathreplacing,decorations.pathmorphing}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[scale=1.000000,x=1pt,y=1pt]
+\filldraw[color=white] (0.000000, -7.500000) rectangle (64.000000, 292.500000);
+% Drawing wires
+% Line 2: 1 W
+\draw[color=black] (-20.000000,285.000000) -- (64.000000,285.000000);
+%   Deferring wire label at (0.000000,285.000000)
+% Line 3: 2 W
+\draw[color=black] (-20.000000,270.000000) -- (64.000000,270.000000);
+% Line 4: a W color=white
+\draw[color=white] (-20.000000,255.000000) -- (64.000000,255.000000);
+% Line 5: 4 W
+\draw[color=black] (-20.000000,240.000000) -- (64.000000,240.000000);
+%\filldraw[color=white,fill=white] (0.000000,236.250000) rectangle (-4.000000,288.750000);
+\draw[decorate,decoration={brace,amplitude = 4.000000pt},very thick] (-20.000000,236.250000) -- (-20.000000,288.750000);
+\draw[color=black] (-24.000000,262.500000) node[left] {$k$};
+% Line 7: 5 W
+\draw[color=black] (-20.000000,225.000000) -- (64.000000,225.000000);
+%   Deferring wire label at (0.000000,225.000000)
+% Line 8: 6 W
+\draw[color=black] (-20.000000,210.000000) -- (64.000000,210.000000);
+% Line 9: b W color=white
+\draw[color=white] (-20.000000,195.000000) -- (64.000000,195.000000);
+% Line 10: 7 W
+\draw[color=black] (-20.000000,180.000000) -- (64.000000,180.000000);
+%\filldraw[color=white,fill=white] (0.000000,176.250000) rectangle (-4.000000,228.750000);
+\draw[decorate,decoration={brace,amplitude = 4.000000pt},very thick] (-20.000000,176.250000) -- (-20.000000,228.750000);
+\draw[color=black] (-24.000000,202.500000) node[left] {$k$};
+% Line 11: u W \ket{0}
+\draw[color=black] (-20.000000,165.000000) -- (64.000000,165.000000);
+\draw[color=black] (-20.000000,165.000000) node[left] {$\ket{0}$};
+% Line 13: 8 W
+\draw[color=black] (-20.000000,150.000000) -- (64.000000,150.000000);
+%   Deferring wire label at (0.000000,150.000000)
+% Line 14: 9 W
+\draw[color=black] (-20.000000,135.000000) -- (64.000000,135.000000);
+% Line 15: c W color=white
+\draw[color=white] (-20.000000,120.000000) -- (64.000000,120.000000);
+% Line 16: 10 W
+\draw[color=black] (-20.000000,105.000000) -- (64.000000,105.000000);
+%\filldraw[color=white,fill=white] (0.000000,101.250000) rectangle (-24.000000,153.750000);
+\draw[decorate,decoration={brace,amplitude = 4.000000pt},very thick] (-20.000000,101.250000) -- (-20.000000,153.750000);
+\draw[color=black] (-24.000000,127.500000) node[left] {$k$};
+% Line 17: v W \ket{0}
+\draw[color=black] (-20.000000,90.000000) -- (64.000000,90.000000);
+\draw[color=black] (-20.000000,90.000000) node[left] {$\ket{0}$};
+% Line 19: s W color=white
+\draw[color=white] (-20.000000,75.000000) -- (64.000000,75.000000);
+% Line 21: x W \ket{0}
+\draw[color=black] (-20.000000,60.000000) -- (64.000000,60.000000);
+\draw[color=black] (-20.000000,60.000000) node[left] {$\ket{0}$};
+% Line 23: p W
+\draw[color=black] (-20.000000,45.000000) -- (64.000000,45.000000);
+%   Deferring wire label at (0.000000,45.000000)
+% Line 24: q W
+\draw[color=black] (-20.000000,30.000000) -- (64.000000,30.000000);
+% Line 25: r W color=white
+\draw[color=white] (-20.000000,15.000000) -- (64.000000,15.000000);
+% Line 26: n W
+\draw[color=black] (-20.000000,0.000000) -- (64.000000,0.000000);
+%\filldraw[color=white,fill=white] (0.000000,-3.750000) rectangle (-4.000000,48.750000);
+\draw[decorate,decoration={brace,amplitude = 4.000000pt},very thick] (-20.000000,-3.750000) -- (-20.000000,48.750000);
+\draw[color=black] (-24.000000,22.500000) node[left] {$k$};
+% Done with wires
+%Big braces
+\draw[decorate,decoration={brace,amplitude = 4.000000pt},very thick] (-42.000000,-3.750000) -- (-42.000000,288.750000);
+\draw[color=black] (-54.000000,142.500000) node[left] {$\frac{n}{k} \text{ blocks}$};
+%Drawing dots to represent continuity of the wires
+\fill (-7.500000,252.000000) circle (0.75pt);
+\fill (-7.500000,256.000000) circle (0.75pt);
+\fill (-7.500000,260.000000) circle (0.75pt);
+
+\fill (-7.500000,192.000000) circle (0.75pt);
+\fill (-7.500000,196.000000) circle (0.75pt);
+\fill (-7.500000,200.000000) circle (0.75pt);
+
+\fill (-7.500000,118.000000) circle (0.75pt);
+\fill (-7.500000,122.000000) circle (0.75pt);
+\fill (-7.500000,126.000000) circle (0.75pt);
+
+\fill (-7.500000,12.000000) circle (0.75pt);
+\fill (-7.500000,16.000000) circle (0.75pt);
+\fill (-7.500000,20.000000) circle (0.75pt);
+%drawing gates
+% Line 33: 1 2 a 4 G:size=20 $D$
+\draw (16.000000,285.000000) -- (16.000000,240.000000);
+\begin{scope}
+\draw[fill=white] (16.000000, 262.500000) +(-45.000000:14.142136pt and 40.305087pt) -- +(45.000000:14.142136pt and 40.305087pt) -- +(135.000000:14.142136pt and 40.305087pt) -- +(225.000000:14.142136pt and 40.305087pt) -- cycle;
+\clip (16.000000, 262.500000) +(-45.000000:14.142136pt and 40.305087pt) -- +(45.000000:14.142136pt and 40.305087pt) -- +(135.000000:14.142136pt and 40.305087pt) -- +(225.000000:14.142136pt and 40.305087pt) -- cycle;
+\draw (16.000000, 262.500000) node {$D$};
+\end{scope}
+% Line 34: 5 6 b 7 u G:size=20 $U_k$
+\draw (16.000000,225.000000) -- (16.000000,165.000000);
+\begin{scope}
+\draw[fill=white] (16.000000, 195.000000) +(-45.000000:14.142136pt and 50.911688pt) -- +(45.000000:14.142136pt and 50.911688pt) -- +(135.000000:14.142136pt and 50.911688pt) -- +(225.000000:14.142136pt and 50.911688pt) -- cycle;
+\clip (16.000000, 195.000000) +(-45.000000:14.142136pt and 50.911688pt) -- +(45.000000:14.142136pt and 50.911688pt) -- +(135.000000:14.142136pt and 50.911688pt) -- +(225.000000:14.142136pt and 50.911688pt) -- cycle;
+\draw (16.000000, 195.000000) node {$U_k$};
+\end{scope}
+% Line 35: 8 9 c 10 v G:size=20 $U_k$
+\draw (16.000000,150.000000) -- (16.000000,90.000000);
+\begin{scope}
+\draw[fill=white] (16.000000, 120.000000) +(-45.000000:14.142136pt and 50.911688pt) -- +(45.000000:14.142136pt and 50.911688pt) -- +(135.000000:14.142136pt and 50.911688pt) -- +(225.000000:14.142136pt and 50.911688pt) -- cycle;
+\clip (16.000000, 120.000000) +(-45.000000:14.142136pt and 50.911688pt) -- +(45.000000:14.142136pt and 50.911688pt) -- +(135.000000:14.142136pt and 50.911688pt) -- +(225.000000:14.142136pt and 50.911688pt) -- cycle;
+\draw (16.000000, 120.000000) node {$U_k$};
+\end{scope}
+% Line 36: x TOUCH
+% Line 38: 4 5 6 b 7 G:size=20 $D$
+\draw (48.000000,240.000000) -- (48.000000,180.000000);
+\begin{scope}
+\draw[fill=white] (48.000000, 210.000000) +(-45.000000:14.142136pt and 50.911688pt) -- +(45.000000:14.142136pt and 50.911688pt) -- +(135.000000:14.142136pt and 50.911688pt) -- +(225.000000:14.142136pt and 50.911688pt) -- cycle;
+\clip (48.000000, 210.000000) +(-45.000000:14.142136pt and 50.911688pt) -- +(45.000000:14.142136pt and 50.911688pt) -- +(135.000000:14.142136pt and 50.911688pt) -- +(225.000000:14.142136pt and 50.911688pt) -- cycle;
+\draw (48.000000, 210.000000) node {$D$};
+\end{scope}
+% Line 39: u 8 9 c 10 G:size=20 $D$
+\draw (48.000000,165.000000) -- (48.000000,105.000000);
+\begin{scope}
+\draw[fill=white] (48.000000, 135.000000) +(-45.000000:14.142136pt and 50.911688pt) -- +(45.000000:14.142136pt and 50.911688pt) -- +(135.000000:14.142136pt and 50.911688pt) -- +(225.000000:14.142136pt and 50.911688pt) -- cycle;
+\clip (48.000000, 135.000000) +(-45.000000:14.142136pt and 50.911688pt) -- +(45.000000:14.142136pt and 50.911688pt) -- +(135.000000:14.142136pt and 50.911688pt) -- +(225.000000:14.142136pt and 50.911688pt) -- cycle;
+\draw (48.000000, 135.000000) node {$D$};
+\end{scope}
+%Drawing part of the decoder D
+\draw[fill=white, color=white] (38.000000,83.500000) rectangle (58.000000,95.500000);
+\draw (38.000000,83.500000) -- (38.000000,95.500000);
+\draw (58.000000,83.500000) -- (58.000000,95.500000);
+\draw (38.000000,95.500000) -- (58.000000,95.500000);
+%Drawing part of U_k
+\draw[fill=white, color=white] (6.000000,54.500000) rectangle (26.000000,65.500000);
+\draw (6.000000,54.500000) -- (6.000000,65.500000);
+\draw (26.000000,54.500000) -- (26.000000,65.500000);
+\draw (6.000000,54.500000) -- (26.000000,54.500000);
+%Drawing dots to represent continuity of the gates
+\fill (32.000000,70.500000) circle (0.75pt);
+\fill (32.000000,74.500000) circle (0.75pt);
+\fill (32.000000,78.500000) circle (0.75pt);
+% Line 40: x p q r n G:size=20 $D$
+\draw (48.000000,60.000000) -- (48.000000,0.000000);
+\begin{scope}
+\draw[fill=white] (48.000000, 30.000000) +(-45.000000:14.142136pt and 50.911688pt) -- +(45.000000:14.142136pt and 50.911688pt) -- +(135.000000:14.142136pt and 50.911688pt) -- +(225.000000:14.142136pt and 50.911688pt) -- cycle;
+\clip (48.000000, 30.000000) +(-45.000000:14.142136pt and 50.911688pt) -- +(45.000000:14.142136pt and 50.911688pt) -- +(135.000000:14.142136pt and 50.911688pt) -- +(225.000000:14.142136pt and 50.911688pt) -- cycle;
+\draw (48.000000, 30.000000) node {$D$};
+\end{scope}
+% Done with gates; drawing ending labels
+% Done with ending labels; drawing cut lines and comments
+% Done with comments
+\end{tikzpicture}
+\hspace{2cm}
+%The circuit for the gate D
+\begin{tikzpicture}[scale=1.000000,x=1pt,y=1pt]
+\filldraw[color=white] (0.000000, 98.500000) rectangle (155.000000, 137.500000);
+% Drawing wires
+% Line 2: 1 W
+\draw[color=black] (-20.000000,180.000000) -- (155.000000,180.000000);
+% Line 3: 2 W
+\draw[color=black] (-20.000000,165.000000) -- (155.000000,165.000000);
+% Line 4: 3 W
+\draw[color=black] (-20.000000,150.000000) -- (155.000000,150.000000);
+% Line 5: a W color=white
+\draw[color=white] (-20.000000,135.000000) -- (155.000000,135.000000);
+% Line 6: 4 W
+\draw[color=black] (-20.000000,120.000000) -- (155.000000,120.000000);
+% Line 7: 5 W
+\draw[color=black] (-20.000000,105.000000) -- (155.000000,105.000000);
+\draw[decorate,decoration={brace,amplitude = 4.000000pt},very thick] (-20.000000,101.250000) -- (-20.000000,183.750000);
+\draw[color=black] (-24.000000,142.500000) node[left] {$t$};
+% Done with wires
+%Drawing dots to represent continuity of the wires
+\fill (-8.000000,132.500000) circle (0.75pt);
+\fill (-8.000000,136.500000) circle (0.75pt);
+\fill (-8.000000,140.500000) circle (0.75pt);
+%drawing gates
+% Line 9: 1 2 3 a 4 5 G:size=20 $D$
+\draw (16.000000,180.000000) -- (16.000000,105.000000);
+\begin{scope}
+\draw[fill=white] (16.000000, 142.500000) +(-45.000000:14.142136pt and 61.518290pt) -- +(45.000000:14.142136pt and 61.518290pt) -- +(135.000000:14.142136pt and 61.518290pt) -- +(225.000000:14.142136pt and 61.518290pt) -- cycle;
+\clip (16.000000, 37.500000) +(-45.000000:14.142136pt and 61.518290pt) -- +(45.000000:14.142136pt and 61.518290pt) -- +(135.000000:14.142136pt and 61.518290pt) -- +(225.000000:14.142136pt and 61.518290pt) -- cycle;
+\draw (16.000000, 142.500000) node {$D$};
+\end{scope}
+\draw (16.000000, 142.500000) node {$D$};
+% Line 10: =
+\draw[fill=white,color=white] (38.000000, 99.000000) rectangle (53.000000, 186.000000);
+\draw (45.500000, 142.500000) node {$=$};
+% Line 11: 2 H 1
+\draw (71.000000,180.000000) -- (71.000000,165.000000);
+\begin{scope}
+\draw[fill=white] (71.000000, 165.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\clip (71.000000, 165.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\draw (71.000000, 165.000000) node {$H$};
+\end{scope}
+\filldraw (71.000000, 180.000000) circle(1.500000pt);
+% Line 12: 3 H 2
+\draw (95.000000,165.000000) -- (95.000000,150.000000);
+\begin{scope}
+\draw[fill=white] (95.000000, 150.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\clip (95.000000, 150.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\draw (95.000000, 150.000000) node {$H$};
+\end{scope}
+\filldraw (95.000000, 165.000000) circle(1.500000pt);
+% Line 13: a TOUCH
+% Line 14: a G $B$ color=white
+\begin{scope}[color=white]
+\begin{scope}[color=white]
+\begin{scope}
+\draw[fill=white] (119.000000, 135.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\clip (119.000000, 135.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\draw (119.000000, 135.000000) node {$B$};
+\end{scope}
+\end{scope}
+\end{scope}
+% Line 15: 4 TOUCH
+% Line 16: 5 H 4
+\draw (143.000000,120.000000) -- (143.000000,105.000000);
+\begin{scope}
+\draw[fill=white] (143.000000, 105.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\clip (143.000000, 105.000000) +(-45.000000:8.485281pt and 8.485281pt) -- +(45.000000:8.485281pt and 8.485281pt) -- +(135.000000:8.485281pt and 8.485281pt) -- +(225.000000:8.485281pt and 8.485281pt) -- cycle;
+\draw (143.000000, 105.000000) node {$H$};
+\end{scope}
+\filldraw (143.000000, 120.000000) circle(1.500000pt);
+%Drawing partial gate
+%\filldraw (122.000000, 150.000000) circle(1.500000pt);
+%\draw (122.00000, 150.0000) -- (122.0000, 145.0000);
+% Done with gates
+%Drawing dots to represent continuity of the H gates
+\fill (122.000000,132.500000) circle (0.75pt);
+\fill (122.000000,136.500000) circle (0.75pt);
+\fill (122.000000,140.500000) circle (0.75pt);
+\end{tikzpicture}
+\caption{The circuit on the left is the entire decoding circuit. The circuit on the right is the honest decoder.}
+\label{fig:FullDecoder}
+\end{figure}
